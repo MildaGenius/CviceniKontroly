@@ -15,6 +15,8 @@ public class TopicSelection : MonoBehaviour
 	{
 		Debug.Log("Topic selection:" + gameObject.name);
 
+		ShowHandler.Topic = gameObject.name;
+
 		Application.LoadLevel("MudSelectionScene");
 	}
 }

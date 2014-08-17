@@ -9,8 +9,12 @@ public class MudSelection : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.LoadLevel("TopicSelectionScene");
+		}
 	}
 	
 	void OnPress (bool isPressed)
@@ -23,11 +27,16 @@ public class MudSelection : MonoBehaviour
 			if (isPositive(Vector2.zero, new Vector2(Screen.width, Screen.height), touchPosition))
 			{
 				Debug.Log("Positive");
+				ShowHandler.Mud = "positive";
 			}
 			else
 			{
 				Debug.Log("Negative");
+				ShowHandler.Mud = "negative";
 			}
+
+			//load main scene with selected topic and mud
+			Application.LoadLevel("MainScene");
 		}
 	}
 
