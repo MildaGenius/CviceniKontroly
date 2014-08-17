@@ -24,7 +24,7 @@ public class Splash : MonoBehaviour
 				
 				if (isPirated)
 				{
-					print("Pirated web player");
+					print("Pirated web player:" + Application.srcValue);
 				}
 				else
 				{

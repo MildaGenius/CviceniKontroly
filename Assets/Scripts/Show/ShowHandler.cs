@@ -3,8 +3,8 @@ using System.Collections;
 
 public class ShowHandler : MonoBehaviour
 {
-	private static string _topic;
-	private static string _mud;
+	private static string _topic = "LoveTopic";
+	private static string _mud = "positive";
 
 	// Use this for initialization
 	void Start () 
@@ -44,5 +44,11 @@ public class ShowHandler : MonoBehaviour
 		{
 			return _topic;
 		}
+	}
+
+	public void SendMessage(GameObject gameObject)
+	{
+		Debug.Log ("SendMessage:" + gameObject.name + " topic:" + _topic);
+		Application.OpenURL ("mailto:?subject=Confidence message&body=Hello, check my confidence message: file:///C:/Unity/CviceniKontroly/Web/Web.html?t=" + _topic + "-" + _mud);
 	}
 }
