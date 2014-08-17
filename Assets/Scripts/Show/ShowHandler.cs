@@ -9,7 +9,7 @@ public class ShowHandler : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-	
+		Debug.Log ("ShowHandler start with:" + _topic + " mud:" + _mud);
 	}
 	
 	// Update is called once per frame
