@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ShowHandler : MonoBehaviour
 {
+	public GameObject _sendButton;
+
 	private static string _topic = "LoveTopic";
 	private static string _mud = "positive";
 
@@ -10,16 +12,28 @@ public class ShowHandler : MonoBehaviour
 	void Start () 
 	{
 		Debug.Log ("ShowHandler start with:" + _topic + " mud:" + _mud);
+
+		//for webplayer
+		if (Application.isWebPlayer)
+		{
+			if (_sendButton)
+			{
+				//disable send button
+				_sendButton.SetActive(false);
+			}
+		}
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape))
+		//back key dont work in webPlayer, there is possible only see show
+		if (Input.GetKeyDown(KeyCode.Escape) && !Application.isWebPlayer)
 		{
 			Application.LoadLevel("MudSelectionScene");
 		}
 	}
+
 	static public string Mud
 	{
 		set
@@ -49,6 +63,6 @@ public class ShowHandler : MonoBehaviour
 	public void SendMessage(GameObject gameObject)
 	{
 		Debug.Log ("SendMessage:" + gameObject.name + " topic:" + _topic);
-		Application.OpenURL ("mailto:?subject=Confidence message&body=Hello, check my confidence message: file:///C:/Unity/CviceniKontroly/Web/Web.html?t=" + _topic + "-" + _mud);
+		Application.OpenURL("mailto:?subject=Confidence message&body=Hello, check my confidence message: http://aimobile.8u.cz/CviceniKontroly.html?t=" + _topic + "-" + _mud);
 	}
 }
