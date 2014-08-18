@@ -12,22 +12,25 @@ public class Splash : MonoBehaviour
 			bool isPirated = false;
 			if (Application.isWebPlayer)
 			{
-				if (Application.srcValue.Contains("Web.unity3d"))
+				//check application name
+				if (!Application.srcValue.Contains("Web.unity3d"))
 				{
 					isPirated = true;
 				}
-				
-				if (string.Compare(Application.absoluteURL, "http://aimobile.8u.cz/Web.unity3d", true) != 0)
+
+				//check url on which is app running
+				if (!Application.absoluteURL.Contains("http://aimobile.8u.cz/Web.unity3d"))
 				{
 					isPirated = true;
 				}
 				
 				if (isPirated)
 				{
-					print("Pirated web player:" + Application.srcValue);
+					print("Pirated web player:" + Application.srcValue + " url:" + Application.absoluteURL);
 				}
 				else
 				{
+					//it looks ok, we can show message
 					Application.LoadLevel("MainScene");
 				}
 			}
