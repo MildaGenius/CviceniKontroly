@@ -12,7 +12,7 @@ public class Splash : MonoBehaviour
 			bool isPirated = false;
 			if (Application.isWebPlayer)
 			{
-				if (Application.srcValue != "Web.unity3d")
+				if (Application.srcValue.Contains("Web.unity3d"))
 				{
 					isPirated = true;
 				}
