@@ -4,6 +4,7 @@ using System.Collections;
 public class ShowHandler : MonoBehaviour
 {
 	public GameObject _sendButton;
+	public SoundManager _soundManager;
 
 	private static string _topic = "LoveTopic";
 	private static string _mud = "positive";
@@ -64,5 +65,7 @@ public class ShowHandler : MonoBehaviour
 	{
 		Debug.Log ("SendMessage:" + gameObject.name + " topic:" + _topic);
 		Application.OpenURL("mailto:?subject=Confidence message&body=Hello, check my confidence message: http://aimobile.8u.cz/CviceniKontroly.html?t=" + _topic + "-" + _mud);
+
+		_soundManager.PlaySfx("UI.1");
 	}
 }
