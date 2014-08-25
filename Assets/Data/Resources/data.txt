@@ -1,0 +1,14 @@
+{
+    "loveTopic": {
+        "sfxPositive": [
+            "super",
+            "great",
+            "nice",
+            "cool"
+        ],
+        "sfxNegative": [
+            "horrible",
+            "suck"
+        ]
+    }
+}
