@@ -28,6 +28,8 @@ public class ShowHandler : MonoBehaviour
 
 		//prepare data
 		_dataManager = new DataManager();
+
+		PrepareToPlay();
 	}
 	
 	// Update is called once per frame
@@ -72,5 +74,29 @@ public class ShowHandler : MonoBehaviour
 		Application.OpenURL("mailto:?subject=Confidence message&body=Hello, check my confidence message: http://aimobile.8u.cz/CviceniKontroly.html?t=" + _topic + "-" + _mud);
 
 		_soundManager.PlaySfx("UI.1");
+	}
+
+	private void PrepareToPlay()
+	{
+		DataPrototype actualTopicData = _dataManager.GetDataPrototype (_topic);
+		Debug.Log ("data:" + actualTopicData);
+
+		//if we have data, play it
+		if (actualTopicData != null)
+		{
+			//acording to selected mud prepare playlist
+			if (_mud == "positive")
+			{
+				_soundManager.AddToPlayList(actualTopicData._positiveInit, actualTopicData._sfxPositive, true);
+			}
+			else
+			{
+				_soundManager.AddToPlayList(actualTopicData._negativeInit, actualTopicData._sfxNegative, true);
+			}
+		}
+		else
+		{
+			Debug.Log ("No data for:" + _topic);
+		}
 	}
 }

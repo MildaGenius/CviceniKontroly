@@ -15,7 +15,7 @@ public class DataManager
 
 	public DataPrototype GetDataPrototype (string topic)
 	{
-		return null;
+		return _soundData[topic] as DataPrototype;
 	}
 
 	private void ReadData()

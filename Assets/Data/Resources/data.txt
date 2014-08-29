@@ -1,5 +1,5 @@
 {
-    "loveTopic": {
+    "LoveTopic": {
 		"positiveInit": "you_are",
         "sfxPositive": [
             "super",
@@ -7,7 +7,7 @@
             "nice",
             "cool"
         ],
-		"negativeInit": "you_are",
+		"negativeInit": "you",
         "sfxNegative": [
             "horrible",
             "suck"
