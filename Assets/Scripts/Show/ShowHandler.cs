@@ -1,5 +1,4 @@
-﻿using SimpleJSON;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,6 +6,7 @@ public class ShowHandler : MonoBehaviour
 {
 	public GameObject _sendButton;
 	public SoundManager _soundManager;
+	private DataManager _dataManager;
 
 	private static string _topic = "LoveTopic";
 	private static string _mud = "positive";
@@ -26,17 +26,8 @@ public class ShowHandler : MonoBehaviour
 			}
 		}
 
-		//parse data
-		TextAsset jsonData = Resources.Load("data", typeof(TextAsset)) as TextAsset;
-		if (jsonData != null)
-		{
-			JSONNode dataNode = JSON.Parse(jsonData.text);
-			ParseData(dataNode);
-		}
-		else
-		{
-			Debug.Log("No json data!");
-		}
+		//prepare data
+		_dataManager = new DataManager();
 	}
 	
 	// Update is called once per frame
@@ -81,13 +72,5 @@ public class ShowHandler : MonoBehaviour
 		Application.OpenURL("mailto:?subject=Confidence message&body=Hello, check my confidence message: http://aimobile.8u.cz/CviceniKontroly.html?t=" + _topic + "-" + _mud);
 
 		_soundManager.PlaySfx("UI.1");
-	}
-
-	private void ParseData(JSONNode dataNode)
-	{
-		foreach( var key in dataNode.Keys )
-		{
-			Debug.Log(key);
-		}
 	}
 }

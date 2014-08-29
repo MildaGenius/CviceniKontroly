@@ -1,11 +1,13 @@
 {
     "loveTopic": {
+		"positiveInit": "you_are",
         "sfxPositive": [
             "super",
             "great",
             "nice",
             "cool"
         ],
+		"negativeInit": "you_are",
         "sfxNegative": [
             "horrible",
             "suck"
